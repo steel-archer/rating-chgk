@@ -1,0 +1,13 @@
+{
+    "name": "steel-archer/rating-chgk",
+    "description": "PHP implementation of rating.chgk.info API",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Bohdan Sokulskyi",
+            "email": "steelarcher@gmail.com"
+        }
+    ],
+    "require": {}
+}
