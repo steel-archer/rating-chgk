@@ -18,6 +18,18 @@ class Players extends Resource
         return 'players/';
     }
 
+
+    /**
+     * @param int $page
+     * @return array
+     */
+    public function getPlayers(int $page = 1): array
+    {
+        $result = $this->get('?page=%d', [$page]);
+
+        return $result ? current($result) : [];
+    }
+
     /**
      * @param int $id
      * @return array
@@ -27,5 +39,34 @@ class Players extends Resource
         $result = $this->get('%d', [$id]);
 
         return $result ? current($result) : [];
+    }
+
+    /**
+     * @param int $id
+     * @param int $page
+     * @return array
+     */
+    public function getPlayerRatings(int $id, int $page = 1): array
+    {
+        return $this->get('%d/rating?page=%d', [$id, $page]);
+    }
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getPlayerRating(int $id): array
+    {
+        return $this->get('%d/rating/latest', [$id]);
+    }
+
+    /**
+     * @param int $id
+     * @param int $release
+     * @return array
+     */
+    public function getPlayerRatingForRelease(int $id, int $release): array
+    {
+        return $this->get('%d/rating/%d', [$id, $release]);
     }
 }
