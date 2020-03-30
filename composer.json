@@ -9,5 +9,16 @@
             "email": "steelarcher@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SteelArcher\\RatingChgk\\": "src/",
+            "SteelArcher\\RatingChgk\\Players\\": "src/Players/",
+            "SteelArcher\\RatingChgk\\Teams\\": "src/Teams/",
+            "SteelArcher\\RatingChgk\\Tournaments\\": "src/Tournaments/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
 }
