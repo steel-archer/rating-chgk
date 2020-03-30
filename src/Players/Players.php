@@ -18,7 +18,6 @@ class Players extends Resource
         return 'players/';
     }
 
-
     /**
      * @param int $page
      * @return array
@@ -69,4 +68,33 @@ class Players extends Resource
     {
         return $this->get('%d/rating/%d', [$id, $release]);
     }
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getPlayerTeams(int $id): array
+    {
+        return $this->get('%d/teams', [$id]);
+    }
+
+    /**
+     * @param int $id
+     * @param int $season
+     * @return array
+     */
+    public function getPlayerTeamsForSeason(int $id, int $season): array
+    {
+        return $this->get('%d/teams/%d', [$id, $season]);
+    }
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getPlayerTeamsLastSeason(int $id): array
+    {
+        return $this->get('%d/teams/last', [$id]);
+    }
+
 }
