@@ -2,7 +2,9 @@
 
 namespace SteelArcher\RatingChgk\Players;
 
-class Players
+use SteelArcher\RatingChgk\Resource;
+
+class Players extends Resource
 {
 
 }

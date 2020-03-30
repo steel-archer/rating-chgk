@@ -2,7 +2,9 @@
 
 namespace SteelArcher\RatingChgk\Tournaments;
 
-class Tournaments
+use SteelArcher\RatingChgk\Resource;
+
+class Tournaments extends Resource
 {
 
 }

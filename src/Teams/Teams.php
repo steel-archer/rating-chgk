@@ -2,7 +2,9 @@
 
 namespace SteelArcher\RatingChgk\Teams;
 
-class Teams
+use SteelArcher\RatingChgk\Resource;
+
+class Teams extends Resource
 {
 
 }
