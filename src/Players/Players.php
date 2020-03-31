@@ -54,9 +54,9 @@ class Players extends Resource
      * @param int $id
      * @return array
      */
-    public function getPlayerRating(int $id): array
+    public function getPlayerLatestRating(int $id): array
     {
-        return $this->get('%d/rating/latest', [$id]);
+        return $this->get('%d/rating/last', [$id]);
     }
 
     /**
@@ -71,30 +71,47 @@ class Players extends Resource
 
     /**
      * @param int $id
+     * @param null $season
      * @return array
      */
-    public function getPlayerTeams(int $id): array
+    public function getPlayerTeams(int $id, $season = null): array
     {
-        return $this->get('%d/teams', [$id]);
+        $url  = '%d/teams';
+        $args = [$id];
+
+        if ($season) {
+            if (is_int($season)) {
+                $url .= '/%d';
+                $args[] = $season;
+            } else {
+                $url .= '/%s';
+                $args[] = 'last';
+            }
+        }
+
+        return $this->get($url, $args);
     }
 
     /**
      * @param int $id
-     * @param int $season
+     * @param mixed $season empty for all seasons, int for specific id, all other values - last season
      * @return array
      */
-    public function getPlayerTeamsForSeason(int $id, int $season): array
+    public function getPlayerTournaments(int $id, $season = null): array
     {
-        return $this->get('%d/teams/%d', [$id, $season]);
-    }
+        $url  = '%d/tournaments';
+        $args = [$id];
 
-    /**
-     * @param int $id
-     * @return array
-     */
-    public function getPlayerTeamsLastSeason(int $id): array
-    {
-        return $this->get('%d/teams/last', [$id]);
-    }
+        if ($season) {
+            if (is_int($season)) {
+                $url .= '/%d';
+                $args[] = $season;
+            } else {
+                $url .= '/%s';
+                $args[] = 'last';
+            }
+        }
 
+        return $this->get($url, $args);
+    }
 }
