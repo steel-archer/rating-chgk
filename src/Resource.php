@@ -16,23 +16,25 @@ abstract class Resource
     /**
      * @param string $route
      * @param array $args
-     * @return array
+     * @return null|array
      */
-    public function get(string $route, array $args): array
+    public function get(string $route, array $args): ?array
     {
         $url = self::BASE_URL . $this->getSubRoute() . vsprintf($route, $args);
         $ch  = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
         curl_setopt($ch, CURLOPT_URL, $url);
-        $result = curl_exec($ch);
+        $jsonResult = curl_exec($ch);
         curl_close($ch);
 
-        return $result ? json_decode($result, true, 512, JSON_OBJECT_AS_ARRAY) : [];
+        $result = $jsonResult ? json_decode($jsonResult, true, 512, JSON_OBJECT_AS_ARRAY) : [];
+
+        return is_array($result) ? $result : null;
     }
 
     /**
      * @return string
      */
-    protected abstract function getSubRoute(): string;
+    abstract protected function getSubRoute(): string;
 }
