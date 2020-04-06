@@ -49,7 +49,9 @@ class Teams extends Resource
     {
         $result = $this->get('%d/rating/%s', [$id, $formula]);
         if (is_null($result)) {
-            $result = ["Looks like team with id {$id} doesn't have rating by formula `{$formula}`"];
+            $result = [
+                'errors' => "Looks like team with id {$id} doesn't have rating by formula `{$formula}`",
+            ];
         }
 
         return $result;
