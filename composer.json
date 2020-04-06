@@ -9,6 +9,7 @@
             "email": "steelarcher@gmail.com"
         }
     ],
+    "version": "0.1",
     "require": {
         "php": ">=7.1",
         "ext-curl": "*",
