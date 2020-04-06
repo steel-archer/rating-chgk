@@ -2,6 +2,10 @@
 
 namespace SteelArcher\RatingChgk;
 
+use SteelArcher\RatingChgk\Teams\Teams;
+use SteelArcher\RatingChgk\Tournaments\Tournaments;
+use SteelArcher\RatingChgk\Players\Players;
+
 /**
  * Class Api
  * @package SteelArcher\RatingChgk
@@ -9,69 +13,69 @@ namespace SteelArcher\RatingChgk;
 class Api
 {
     /**
-     * @var Players\Players
+     * @var Players
      */
     private $players;
 
     /**
-     * @var Teams\Teams
+     * @var Teams
      */
     private $teams;
 
     /**
-     * @var Tournaments\Tournaments
+     * @var Tournaments
      */
     private $tournaments;
 
     /**
-     * @return Players\Players
+     * @return Players
      */
-    public function getPlayers(): Players\Players
+    public function getPlayers(): Players
     {
         return $this->players;
     }
 
     /**
-     * @param Players\Players $players
+     * @param Players $players
      * @return Api
      */
-    public function setPlayers(Players\Players $players): Api
+    public function setPlayers(Players $players): Api
     {
         $this->players = $players;
         return $this;
     }
 
     /**
-     * @return Tournaments\Tournaments
+     * @return Tournaments
      */
-    public function getTournaments(): Tournaments\Tournaments
+    public function getTournaments(): Tournaments
     {
         return $this->tournaments;
     }
 
     /**
-     * @param Tournaments\Tournaments $tournaments
+     * @param Tournaments $tournaments
      * @return Api
      */
-    public function setTournaments(Tournaments\Tournaments $tournaments): Api
+    public function setTournaments(Tournaments $tournaments): Api
     {
         $this->tournaments = $tournaments;
         return $this;
     }
 
     /**
-     * @return Teams\Teams
+     * @return Teams
      */
-    public function getTeams(): Teams\Teams
+    public function getTeams(): Teams
     {
         return $this->teams;
     }
 
     /**
-     * @param Teams\Teams $teams
+     * @param Teams $teams
      * @return Api
      */
-    public function setTeams(Teams\Teams $teams): Api
+    public function setTeams(Teams $teams): Api
     {
         $this->teams = $teams;
         return $this;
@@ -82,8 +86,8 @@ class Api
      */
     public function __construct()
     {
-        $this->players     = new Players\Players();
-        $this->teams       = new Teams\Teams();
-        $this->tournaments = new Tournaments\Tournaments();
+        $this->players     = new Players();
+        $this->teams       = new Teams();
+        $this->tournaments = new Tournaments();
     }
 }
