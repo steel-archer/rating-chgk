@@ -9,7 +9,7 @@ function pr($data): void
 {
     $backtrace = debug_backtrace()[0];
     $output    = "{$backtrace['file']}:{$backtrace['line']}\n" . print_r($data, true) . "\n\n";
-    if (PHP_SAPI != 'cli') {
+    if (PHP_SAPI !== 'cli') {
         $output = '<pre style="background-color: lightgrey;">' . $output . '</pre><br><br>';
     }
     echo $output;
